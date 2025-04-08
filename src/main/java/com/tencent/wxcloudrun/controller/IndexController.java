@@ -1,17 +1,15 @@
 package com.tencent.wxcloudrun.controller;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.tencent.wxcloudrun.config.ApiResponse;
 
-/**
- * index控制器
- */
-@Controller
 
+@RestController
 public class IndexController {
 
   @GetMapping(value = "/test")
-  ApiResponse get() {
+  public ApiResponse get() {
     return ApiResponse.ok("test");
   }
 
