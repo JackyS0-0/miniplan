@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import com.tencent.wxcloudrun.service.UserService;
 import com.tencent.wxcloudrun.model.User;
-import com.tencent.wxcloudrun.config.ApiResponse;
 
 
 @RestController
