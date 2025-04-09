@@ -4,6 +4,7 @@ import com.tencent.wxcloudrun.model.Plan;
 import com.tencent.wxcloudrun.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/plan")
@@ -15,6 +16,11 @@ public class PlanController {
     @GetMapping("/{id}")
     public Plan get(@PathVariable String id) {
         return planService.get(id);
+    }
+
+    @GetMapping("/{userId}")
+    public List<Plan> getByUserId(@PathVariable String userId) {
+        return planService.getByUserId(userId);
     }
 
     @PostMapping

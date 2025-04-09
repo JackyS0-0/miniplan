@@ -5,6 +5,8 @@ import com.tencent.wxcloudrun.model.PlanTask;
 import com.tencent.wxcloudrun.service.PlanTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
+
 
 @Service
 public class PlanTaskServiceImpl implements PlanTaskService {
@@ -15,6 +17,11 @@ public class PlanTaskServiceImpl implements PlanTaskService {
     @Override
     public PlanTask get(String id) {
         return planTaskMapper.get(id);
+    }
+
+    @Override
+    public List<PlanTask> getByPlanId(String planId) {
+        return planTaskMapper.getByPlanId(planId);
     }
 
     @Override

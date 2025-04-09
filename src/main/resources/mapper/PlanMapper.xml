@@ -17,6 +17,12 @@
         WHERE id = #{id}
     </select>
 
+    <select id="getByUserId" resultMap="planMapper" parameterType="java.lang.String">
+        SELECT `id`, `title`, `deadline`, `createdAt`, `updatedAt`
+        FROM plan
+        WHERE id = #{userId} order by createdAt desc
+    </select>
+
     <insert id="create" parameterType="com.tencent.wxcloudrun.model.Plan">
         INSERT INTO `plan`(`id`, `userid`, `title`, `deadline`)
         VALUES(#{id}, #{userId}, #{title}, #{deadline})

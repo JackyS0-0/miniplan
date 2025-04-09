@@ -3,6 +3,9 @@ package com.tencent.wxcloudrun.service.impl;
 import com.tencent.wxcloudrun.dao.PlanMapper;
 import com.tencent.wxcloudrun.model.Plan;
 import com.tencent.wxcloudrun.service.PlanService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,11 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public Plan get(String id) {
         return planMapper.get(id);
+    }
+    
+    @Override
+    public List<Plan> getByUserId(String userId) {
+        return planMapper.getByUserId(userId);
     }
 
     @Override
