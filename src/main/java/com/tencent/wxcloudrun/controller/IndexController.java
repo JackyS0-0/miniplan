@@ -23,7 +23,8 @@ public class IndexController {
   @GetMapping("/login")
   public User login(@RequestHeader("X-WX-OPENID") String wx_openid) {
       User user = userService.getByWxOpenId(wx_openid);
-      if(user.getId() == null) {
+      if(user == null ) {
+          user = new User();
           user.setWxOpenid(wx_openid);
           UUID uuid = UUID.randomUUID();
           String uuid32 = uuid.toString().replace("-", "");
