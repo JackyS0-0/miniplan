@@ -20,7 +20,7 @@
     <select id="getByUserId" resultMap="planMapper" parameterType="java.lang.String">
         SELECT `id`, `title`, `deadline`, `createdAt`, `updatedAt`
         FROM plan
-        WHERE id = #{userId} order by createdAt desc
+        WHERE userid = #{userId} order by createdAt desc
     </select>
 
     <insert id="create" parameterType="com.tencent.wxcloudrun.model.Plan">
