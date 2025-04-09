@@ -18,7 +18,7 @@ public class PlanController {
         return planService.get(id);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/user/{userId}")
     public List<Plan> getByUserId(@PathVariable String userId) {
         return planService.getByUserId(userId);
     }

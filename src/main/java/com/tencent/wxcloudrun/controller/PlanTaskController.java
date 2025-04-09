@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/plan-task")
+@RequestMapping("/task")
 public class PlanTaskController {
 
     @Autowired
@@ -18,7 +18,7 @@ public class PlanTaskController {
         return planTaskService.get(id);
     }
 
-    @GetMapping("/{planId}")
+    @GetMapping("/plan/{planId}")
     public List<PlanTask> getByPlanId(@PathVariable String planId) {
         return planTaskService.getByPlanId(planId);
     }
