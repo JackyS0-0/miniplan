@@ -1,22 +1,33 @@
 package com.tencent.wxcloudrun.controller;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.tencent.wxcloudrun.service.UserService;
+import com.tencent.wxcloudrun.model.User;
 import com.tencent.wxcloudrun.config.ApiResponse;
 
 
 @RestController
 public class IndexController {
 
-  @GetMapping(value = "/test")
-  public ApiResponse get() {
-    return ApiResponse.ok("test");
-  }
+  @Autowired
+  private UserService userService;
 
   @GetMapping("/login")
-  public String login(@RequestHeader("X-WX-OPENID") String wx_openid) {
-      return "X-WX-OPENID" + wx_openid;
+  public User login(@RequestHeader("X-WX-OPENID") String wx_openid) {
+      User user = userService.getByWxOpenId(wx_openid);
+      if(user.getId() == null) {
+          user.setWxOpenid(wx_openid);
+          UUID uuid = UUID.randomUUID();
+          String uuid32 = uuid.toString().replace("-", "");
+          user.setId(uuid32);
+          user.setNickname("小计划用户");
+          userService.create(user);
+      }
+      return user;
   }
 
 

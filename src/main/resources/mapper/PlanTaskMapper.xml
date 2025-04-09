@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.PlanTaskMapper">
+
+    <resultMap id="planTaskMapper" type="com.tencent.wxcloudrun.model.PlanTask">
+        <id property="id" column="id"/>
+        <result property="planId" column="planId"/>
+        <result property="title" column="title"/>
+        <result property="completed" column="completed"/>
+        <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
+        <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+    </resultMap>
+
+    <select id="get" resultMap="planTaskMapper" parameterType="java.lang.String">
+        SELECT `id`, `planId`, `title`, `completed`, `createdAt`, `updatedAt`
+        FROM plan_task
+        WHERE id = #{id}
+    </select>
+
+    <select id="getByPlanId" resultMap="planTaskMapper" parameterType="java.lang.String">
+        SELECT `id`, `planid`, `title`, `completed`, `createdAt`, `updatedAt`
+        FROM plan_task
+        WHERE id = #{planId} order by createdAt asc
+    </select>
+
+    <insert id="create" parameterType="com.tencent.wxcloudrun.model.PlanTask">
+        INSERT INTO `plan_task`(`id`, `planid`, `title`)
+        VALUES(#{id}, #{planId}, #{title})
+    </insert>
+
+    <update id="update" parameterType="com.tencent.wxcloudrun.model.PlanTask">
+        UPDATE `plan_task`
+        SET planid=#{planId}, title=#{title}, completed=#{completed}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE
+        FROM plan_task
+        WHERE id = #{id}
+    </delete>
+
+</mapper>
