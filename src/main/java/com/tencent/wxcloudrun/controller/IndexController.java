@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import com.tencent.wxcloudrun.service.UserService;
 import com.tencent.wxcloudrun.model.User;
-
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class IndexController {
@@ -21,7 +22,7 @@ public class IndexController {
   }
 
   @GetMapping("/login")
-  public User login(@RequestHeader("X-WX-OPENID") String wx_openid) {
+  public Map<String, String> login(@RequestHeader("X-WX-OPENID") String wx_openid) {
       User user = userService.getByWxOpenId(wx_openid);
       if(user == null ) {
           user = new User();
@@ -32,7 +33,11 @@ public class IndexController {
           user.setNickname("小计划用户");
           userService.create(user);
       }
-      return user;
+      Map<String, String> map = new HashMap<>();
+      map.put("id", user.getId());
+      map.put("nickname", user.getNickname());
+      map.put("avatarUrl", user.getAvatarUrl());
+      return map;
   }
 
 
