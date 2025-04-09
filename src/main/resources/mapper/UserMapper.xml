@@ -5,6 +5,7 @@
     <resultMap id="userMapper" type="com.tencent.wxcloudrun.model.User">
         <id property="id" column="id"/>
         <result property="nickname" column="nickname"/>
+        <result property="wxOpenid" column="wx_openid"/>
         <result property="avatarUrl" column="avatar_url"/>
         <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
         <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
@@ -19,12 +20,12 @@
     <select id="getByWxOpenId" resultMap="userMapper" parameterType="java.lang.String">
         SELECT `id`, `nickname`, `avatar_url`
         FROM user
-        WHERE wx_openid = #{wx_openid}
+        WHERE wx_openid = #{wxOpenid}
     </select> 
 
     <insert id="create" parameterType="com.tencent.wxcloudrun.model.User">
         INSERT INTO `user`(`id`, `nickname`, `wx_openid`)
-        VALUES(#{id}, #{nickname}, #{wx_openid})
+        VALUES(#{id}, #{nickname}, #{wxOpenid})
     </insert>
 
     <update id="update" parameterType="com.tencent.wxcloudrun.model.User">
