@@ -15,6 +15,11 @@ public class IndexController {
   @Autowired
   private UserService userService;
 
+  @GetMapping("/hi")
+  public String test() {
+      return "Hello World!";
+  }
+
   @GetMapping("/login")
   public User login(@RequestHeader("X-WX-OPENID") String wx_openid) {
       User user = userService.getByWxOpenId(wx_openid);
