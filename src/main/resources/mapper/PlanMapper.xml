@@ -6,9 +6,9 @@
         <id property="id" column="id"/>
         <result property="userId" column="userid"/>
         <result property="title" column="title"/>
-        <result property="deadline" column="deadline" javaType="java.time.LocalDate"/>
-        <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
-        <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+        <result property="deadline" column="deadline" javaType="java.sql.Date"/>
+        <result property="createdAt" column="createdAt" javaType="java.sql.Timestamp" />
+        <result property="updatedAt" column="updatedAt" javaType="java.sql.Timestamp"  />
     </resultMap>
 
     <select id="get" resultMap="planMapper" parameterType="java.lang.String">

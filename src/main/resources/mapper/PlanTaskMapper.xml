@@ -7,8 +7,8 @@
         <result property="planId" column="planId"/>
         <result property="title" column="title"/>
         <result property="completed" column="completed"/>
-        <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
-        <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+        <result property="createdAt" column="createdAt" javaType="java.sql.Timestamp" />
+        <result property="updatedAt" column="updatedAt" javaType="java.sql.Timestamp"  />
     </resultMap>
 
     <select id="get" resultMap="planTaskMapper" parameterType="java.lang.String">

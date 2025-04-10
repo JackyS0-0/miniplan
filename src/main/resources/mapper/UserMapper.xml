@@ -7,8 +7,8 @@
         <result property="nickname" column="nickname"/>
         <result property="wxOpenid" column="wx_openid"/>
         <result property="avatarUrl" column="avatar_url"/>
-        <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
-        <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+        <result property="createdAt" column="createdAt" javaType="java.sql.Timestamp" />
+        <result property="updatedAt" column="updatedAt" javaType="java.sql.Timestamp"  />
     </resultMap>
 
     <select id="get" resultMap="userMapper" parameterType="java.lang.String">

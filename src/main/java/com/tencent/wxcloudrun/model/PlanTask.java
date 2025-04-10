@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class PlanTask {
     private String id;
-    private String planid;
+    private String planId;
     private String title;
     private int completed;
     private Timestamp createdAt;
@@ -19,12 +19,12 @@ public class PlanTask {
         this.id = id;
     }
 
-    public String getPlanid() {
-        return planid;
+    public String getPlanId() {
+        return planId;
     }
 
-    public void setPlanid(String planid) {
-        this.planid = planid;
+    public void setPlanId(String planId) {
+        this.planId = planId;
     }
 
     public int getCompleted() {

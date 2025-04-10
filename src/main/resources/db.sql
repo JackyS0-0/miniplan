@@ -1,11 +1,3 @@
-CREATE TABLE `Counters` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `count` int(11) NOT NULL DEFAULT '1',
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
-
 CREATE TABLE `user` (
   `id` VARCHAR(32) NOT NULL,
   `wx_openid` VARCHAR(32) DEFAULT NULL,
@@ -24,7 +16,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `idx_wx_unionid` (`wx_unionid`),
   KEY `idx_mobile` (`mobile`),
   KEY `idx_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `plan` (
   `id` VARCHAR(32) NOT NULL,
@@ -36,7 +28,7 @@ CREATE TABLE `plan` (
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `plan_task` (
   `id` VARCHAR(32) NOT NULL,
@@ -46,4 +38,4 @@ CREATE TABLE `plan_task` (
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
