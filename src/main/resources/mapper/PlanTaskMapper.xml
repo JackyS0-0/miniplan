@@ -24,8 +24,8 @@
     </select>
 
     <insert id="create" parameterType="com.tencent.wxcloudrun.model.PlanTask">
-        INSERT INTO `plan_task`(`id`, `planid`, `title`, `index`)
-        VALUES(#{id}, #{planId}, #{title}, #{index})
+        INSERT INTO `plan_task`(`id`, `planid`, `title`, `completed`, `index`)
+        VALUES(#{id}, #{planId}, #{title}, #{completed}, #{index})
     </insert>
 
     <update id="changeCompleted" parameterType="com.tencent.wxcloudrun.model.PlanTask">
