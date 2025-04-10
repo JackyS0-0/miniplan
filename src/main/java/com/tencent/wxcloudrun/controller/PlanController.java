@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/plan")
@@ -54,6 +55,9 @@ public class PlanController {
 
     @PostMapping
     public void create(@RequestBody Plan plan) {
+        UUID uuid = UUID.randomUUID();
+        String uuid32 = uuid.toString().replace("-", "");
+        plan.setId(uuid32);
         planService.create(plan);
     }
 
