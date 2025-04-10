@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Plan {
     private String id;
-    private String userid;
+    private String userId;
     private String parentplan;
     private String title;
     private Date deadline;
@@ -22,12 +22,12 @@ public class Plan {
         this.id = id;
     }
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getParentplan() {
