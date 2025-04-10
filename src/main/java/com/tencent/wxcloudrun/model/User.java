@@ -12,7 +12,7 @@ public class User {
     private String mobile;
     private String email;
     private String passwordHash;
-    private int status;
+    private Integer status;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
@@ -89,11 +89,11 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

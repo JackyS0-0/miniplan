@@ -9,7 +9,7 @@ public class Plan {
     private String parentplan;
     private String title;
     private Date deadline;
-    private int status;
+    private Integer status;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
@@ -54,11 +54,11 @@ public class Plan {
         this.deadline = deadline;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

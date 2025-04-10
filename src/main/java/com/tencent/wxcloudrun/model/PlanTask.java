@@ -6,7 +6,7 @@ public class PlanTask {
     private String id;
     private String planId;
     private String title;
-    private int completed;
+    private Integer completed;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
@@ -27,11 +27,11 @@ public class PlanTask {
         this.planId = planId;
     }
 
-    public int getCompleted() {
+    public Integer getCompleted() {
         return completed;
     }
 
-    public void setCompleted(int completed) {
+    public void setCompleted(Integer completed) {
         this.completed = completed;
     }
 

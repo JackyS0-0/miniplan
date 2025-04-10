@@ -55,7 +55,7 @@ public class PlanController {
     }
 
     @PostMapping
-    public void create(@RequestBody Plan plan) {
+    public void create(Plan plan) {
         UUID uuid = UUID.randomUUID();
         String uuid32 = uuid.toString().replace("-", "");
         plan.setId(uuid32);
