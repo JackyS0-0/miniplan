@@ -21,8 +21,8 @@ public class PlanServiceImpl implements PlanService {
     }
     
     @Override
-    public List<Plan> getByUserId(String userId) {
-        return planMapper.getByUserId(userId);
+    public List<Plan> getByUserId(String userId, Integer status) {
+        return planMapper.getByUserId(userId,status);
     }
 
     @Override

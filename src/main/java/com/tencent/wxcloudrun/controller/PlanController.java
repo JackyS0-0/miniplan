@@ -28,10 +28,11 @@ public class PlanController {
     }
 
     @GetMapping("/user/{userId}")
-    public List<Map<String, Object>>  getByUserId(@PathVariable String userId) {
+    public List<Map<String, Object>>  getByUserId(@PathVariable String userId,
+    @RequestParam(required = false) Integer status) {
         List<Map<String, Object>> result = new ArrayList<>();
         
-        List<Plan> list = planService.getByUserId(userId);
+        List<Plan> list = planService.getByUserId(userId,status);
         for (Plan plan : list) {
             Map<String, Object> map = new HashMap<>();
             List<PlanTask> tasks = planTaskService.getByPlanId(plan.getId());

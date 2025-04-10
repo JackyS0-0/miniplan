@@ -24,7 +24,7 @@ CREATE TABLE `plan` (
   `parentplan` VARCHAR(32) DEFAULT NULL,
   `title` VARCHAR(32) DEFAULT NULL,
   `deadline` DATE DEFAULT NULL,
-  `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '状态：0-已删除, 1-正常',
+  `status` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '状态：0-已删除, 1-正常, 2-已完结',
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)

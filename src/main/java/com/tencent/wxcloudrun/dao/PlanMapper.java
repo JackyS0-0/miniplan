@@ -10,7 +10,8 @@ public interface PlanMapper {
 
     Plan get(@Param("id") String id);
 
-    List<Plan> getByUserId(@Param("userId") String userId);
+    List<Plan> getByUserId(@Param("userId") String userId,
+                          @Param("status") Integer status);
 
     void create(Plan plan);
 

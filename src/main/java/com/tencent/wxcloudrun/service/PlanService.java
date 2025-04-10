@@ -8,7 +8,7 @@ public interface PlanService {
 
     Plan get(String id);
 
-    List<Plan> getByUserId(String userId);
+    List<Plan> getByUserId(String userId, Integer status);
 
     void create(Plan plan);
 
