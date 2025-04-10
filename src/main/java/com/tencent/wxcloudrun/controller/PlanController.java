@@ -23,8 +23,15 @@ public class PlanController {
     private PlanTaskService planTaskService;
 
     @GetMapping("/{id}")
-    public Plan get(@PathVariable String id) {
-        return planService.get(id);
+    public Map<String, Object> get(@PathVariable String id) {
+        Plan plan =  planService.get(id);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", plan.getId());
+        map.put("title", plan.getTitle());
+        map.put("deadline", plan.getDeadline().toString());
+        List<PlanTask> tasks = planTaskService.getByPlanId(plan.getId());
+        map.put("tasks", tasks);
+        return map;
     }
 
     @GetMapping("/user/{userId}")
@@ -63,7 +70,7 @@ public class PlanController {
     }
 
     @PutMapping
-    public void update(@RequestBody Plan plan) {
+    public void update(Plan plan) {
         planService.update(plan);
     }
 
