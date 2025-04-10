@@ -16,7 +16,7 @@ public interface PlanTaskMapper {
 
     void create(PlanTask planTask);
 
-    void update(PlanTask planTask);
-
     void delete(@Param("id") String id);
+
+    void deleteByPlanId(@Param("planId") String planId);
 }

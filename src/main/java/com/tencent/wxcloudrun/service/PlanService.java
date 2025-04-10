@@ -14,5 +14,7 @@ public interface PlanService {
 
     void update(Plan plan);
 
+    void changeStatus(Plan plan);
+
     void delete(String id);
 }

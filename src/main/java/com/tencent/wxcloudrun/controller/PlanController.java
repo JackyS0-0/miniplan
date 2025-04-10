@@ -57,12 +57,11 @@ public class PlanController {
             map.put("tasks", tasks);
             result.add(map);
         }
-        
         return result;
     }
 
     @PostMapping
-    public void create(Plan plan) {
+    public void create(@RequestBody Plan plan) {
         UUID uuid = UUID.randomUUID();
         String uuid32 = uuid.toString().replace("-", "");
         plan.setId(uuid32);
@@ -70,12 +69,32 @@ public class PlanController {
     }
 
     @PutMapping
-    public void update(Plan plan) {
+    public void savaPlan(@RequestBody Plan plan) {
+        //更新plan
         planService.update(plan);
+        //根据planid先删除所有task
+        planTaskService.deleteByPlanId(plan.getId());
+        //再添加task
+        List<PlanTask> tasks = plan.getTasks();
+        for(int index = 0;index<tasks.size();index++){ 
+            PlanTask task = tasks.get(index);
+            UUID uuid = UUID.randomUUID();
+            String uuid32 = uuid.toString().replace("-", "");
+            task.setId(uuid32);
+            task.setPlanId(plan.getId());
+            task.setIndex(index);
+            planTaskService.create(task);
+        }
+    }
+
+    @PutMapping("/status")
+    public void changeStatus(@RequestBody Plan plan) {
+        planService.changeStatus(plan);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         planService.delete(id);
+        planTaskService.deleteByPlanId(id);
     }
 }

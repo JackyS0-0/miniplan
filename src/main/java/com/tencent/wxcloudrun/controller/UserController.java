@@ -22,13 +22,5 @@ public class UserController {
         userService.create(user);
     }
 
-    @PutMapping
-    public void update(@RequestBody User user) {
-        userService.update(user);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
-        userService.delete(id);
-    }
+   
 }

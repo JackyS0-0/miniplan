@@ -38,6 +38,12 @@
         WHERE id=#{id}
     </update>
 
+    <update id="changeStatus" parameterType="com.tencent.wxcloudrun.model.Plan">
+        UPDATE plan
+        SET status=#{status}, updatedAt=NOW()
+        WHERE id=#{id}
+    </update>
+
     <delete id="delete" parameterType="java.lang.String">
         DELETE
         FROM plan

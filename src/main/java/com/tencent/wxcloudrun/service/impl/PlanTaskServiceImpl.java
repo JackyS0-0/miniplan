@@ -30,12 +30,12 @@ public class PlanTaskServiceImpl implements PlanTaskService {
     }
 
     @Override
-    public void update(PlanTask planTask) {
-        planTaskMapper.update(planTask);
+    public void delete(String id) {
+        planTaskMapper.delete(id);
     }
 
     @Override
-    public void delete(String id) {
-        planTaskMapper.delete(id);
+    public void deleteByPlanId(String planId) {
+        planTaskMapper.deleteByPlanId(planId);
     }
 }

@@ -34,6 +34,7 @@ CREATE TABLE `plan_task` (
   `id` VARCHAR(32) NOT NULL,
   `planid` VARCHAR(32) DEFAULT NULL,
   `title` VARCHAR(32) DEFAULT NULL,
+  `index` INT DEFAULT NULL,
   `completed` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '完成状态：0-未完成, 1-已完成',
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

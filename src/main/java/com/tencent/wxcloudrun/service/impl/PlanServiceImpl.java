@@ -36,6 +36,11 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
+    public void changeStatus(Plan plan){
+        planMapper.changeStatus(plan);
+    }
+
+    @Override
     public void delete(String id) {
         planMapper.delete(id);
     }

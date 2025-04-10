@@ -12,32 +12,32 @@
     </resultMap>
 
     <select id="get" resultMap="planTaskMapper" parameterType="java.lang.String">
-        SELECT `id`, `planId`, `title`, `completed`, `createdAt`, `updatedAt`
+        SELECT `id`, `planId`, `title`, `completed`
         FROM plan_task
-        WHERE id = #{id}
+        WHERE id = #{id} order by index asc
     </select>
 
     <select id="getByPlanId" resultMap="planTaskMapper" parameterType="java.lang.String">
-        SELECT `id`, `planid`, `title`, `completed`, `createdAt`, `updatedAt`
+        SELECT `id`, `planid`, `title`, `completed`
         FROM plan_task
-        WHERE planid = #{planId} order by createdAt asc
+        WHERE planid = #{planId} order by index asc
     </select>
 
     <insert id="create" parameterType="com.tencent.wxcloudrun.model.PlanTask">
-        INSERT INTO `plan_task`(`id`, `planid`, `title`)
-        VALUES(#{id}, #{planId}, #{title})
+        INSERT INTO `plan_task`(`id`, `planid`, `title`, `index`)
+        VALUES(#{id}, #{planId}, #{title}, #{index})
     </insert>
-
-    <update id="update" parameterType="com.tencent.wxcloudrun.model.PlanTask">
-        UPDATE `plan_task`
-        SET planid=#{planId}, title=#{title}, completed=#{completed}
-        WHERE id=#{id}
-    </update>
 
     <delete id="delete" parameterType="java.lang.String">
         DELETE
         FROM plan_task
         WHERE id = #{id}
+    </delete>
+
+    <delete id="deleteByPlanId" parameterType="java.lang.String">
+        DELETE
+        FROM plan_task
+        WHERE planid = #{planId}
     </delete>
 
 </mapper>

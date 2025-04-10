@@ -12,7 +12,7 @@ public interface PlanTaskService {
 
     void create(PlanTask planTask);
 
-    void update(PlanTask planTask);
-
     void delete(String id);
+
+    void deleteByPlanId(String planId);
 }

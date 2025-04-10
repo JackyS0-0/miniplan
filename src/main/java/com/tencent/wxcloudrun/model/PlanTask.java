@@ -6,6 +6,7 @@ public class PlanTask {
     private String id;
     private String planId;
     private String title;
+    private Integer index;
     private Integer completed;
     private Timestamp createdAt;
     private Timestamp updatedAt;
@@ -25,6 +26,14 @@ public class PlanTask {
 
     public void setPlanId(String planId) {
         this.planId = planId;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+    
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
     public Integer getCompleted() {
