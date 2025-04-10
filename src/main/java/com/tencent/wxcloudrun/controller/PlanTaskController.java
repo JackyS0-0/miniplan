@@ -28,6 +28,11 @@ public class PlanTaskController {
         planTaskService.create(planTask);
     }
 
+    @PutMapping
+    public void completed(@RequestBody PlanTask planTask) {
+        planTaskService.changeCompleted(planTask);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
         planTaskService.delete(id);

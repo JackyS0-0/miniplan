@@ -12,6 +12,8 @@ public interface PlanTaskService {
 
     void create(PlanTask planTask);
 
+    void changeCompleted(PlanTask planTask);
+
     void delete(String id);
 
     void deleteByPlanId(String planId);

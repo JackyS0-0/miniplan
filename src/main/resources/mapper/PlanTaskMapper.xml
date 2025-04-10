@@ -28,6 +28,12 @@
         VALUES(#{id}, #{planId}, #{title}, #{index})
     </insert>
 
+    <update id="changeCompleted" parameterType="com.tencent.wxcloudrun.model.PlanTask">
+        UPDATE plan_task
+        SET completed=#{completed}, updatedAt=NOW()
+        WHERE id=#{id}
+    </update>
+
     <delete id="delete" parameterType="java.lang.String">
         DELETE
         FROM plan_task
