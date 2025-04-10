@@ -14,13 +14,13 @@
     <select id="get" resultMap="planTaskMapper" parameterType="java.lang.String">
         SELECT `id`, `planId`, `title`, `completed`
         FROM plan_task
-        WHERE id = #{id} order by index asc
+        WHERE id = #{id} order by `index` asc
     </select>
 
     <select id="getByPlanId" resultMap="planTaskMapper" parameterType="java.lang.String">
         SELECT `id`, `planid`, `title`, `completed`
         FROM plan_task
-        WHERE planid = #{planId} order by index asc
+        WHERE planid = #{planId} order by `index` asc
     </select>
 
     <insert id="create" parameterType="com.tencent.wxcloudrun.model.PlanTask">
